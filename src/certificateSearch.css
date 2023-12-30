@@ -118,3 +118,16 @@ body {
 .advanced-link a:hover {
   background-color: #2980b9; /* Choose a darker shade for hover effect */
 }
+
+@keyframes customSlideInDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.custom-slide-in-down {
+  animation: customSlideInDown 0.5s ease-in-out;
+}

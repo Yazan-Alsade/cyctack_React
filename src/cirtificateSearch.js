@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './certificateSearch.css';
+import Swal from 'sweetalert2';
 
 const CertificateSearch = () => {
   const history = useHistory();
@@ -21,8 +22,17 @@ const CertificateSearch = () => {
     }
 
     else{
-        alert(`Certificate ${searchInput} not found, please try again`);
-    }
+        Swal.fire({
+            icon: 'error',
+            title: 'Certificate Not Found',
+            text: `Certificate ${searchInput} not found, please try again`,
+            customClass:{
+                popup:'custom-slide-in-down',
+            },
+            showClass:{
+                popup:'custom-slide-in-down'
+            },
+          });    }
 
     sessionStorage.setItem('certificateSearchInput',searchInput);
 

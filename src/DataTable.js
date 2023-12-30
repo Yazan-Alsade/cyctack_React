@@ -19,7 +19,16 @@ const DataTable = () => {
     fetchData();
   }, []);
 
-  const columns = ['IDCer', 'CerName', 'CommonName', 'ValueName'];
+  // Function to format the timestamp
+  const formatTimestamp = (timestamp) => {
+    const date = new Date(timestamp);
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${year}/${month}/${day}`;
+  };
+
+  const columns = ['crt.sh ID', 'Logged At', 'Not Before', 'Not After','Common Name','Matching Identities','Issuer Name'];
 
   return (
     <div>
@@ -35,10 +44,13 @@ const DataTable = () => {
         <tbody>
           {data.map(row => (
             <tr key={row.id}>
-              <td>{row.issuer_ca_id}</td>
-              <td>{row.issuer_name}</td>
+              <td>{row.id}</td>
+              <td>{formatTimestamp(row.entry_timestamp)}</td>
+              <td>{formatTimestamp(row.not_before)}</td>
+              <td>{formatTimestamp(row.not_after)}</td>
               <td>{row.common_name}</td>
               <td>{row.name_value}</td>
+              <td>{row.issuer_name}</td>
             </tr>
           ))}
         </tbody>
