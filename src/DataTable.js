@@ -1,14 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Table, Checkbox } from 'antd';
+import { Table} from 'antd';
 import './datatable.css';
+
 
 const DataTable = () => {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
-  const [showExpired, setShowExpired] = useState(false);
   const [filteredValue, setFilteredValue] = useState([]);
   
 

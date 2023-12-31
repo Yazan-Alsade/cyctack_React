@@ -3,12 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import Navbar from './Navbar';
 import Header from './Header';
-import AboutUs from './AboutUs';
 import './certificateSearch.css';
 import Swal from 'sweetalert2';
 import './Navbar.css';
 import './Header.css';
-import './AboutUs.css';
 
 const CertificateSearch = () => {
   const history = useHistory();
@@ -73,7 +71,6 @@ const CertificateSearch = () => {
             </div>
           </form>
         </div>
-        <AboutUs />
       </div>
       <div className="footer">
         <p className="copyright">&copy; Sectigo Limited 2015-2023. All rights reserved.</p>
